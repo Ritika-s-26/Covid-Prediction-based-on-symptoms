@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+<head>
+  <title>COVID Prediction based on Symptoms</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="shortcut icon" href="{% static 'img/iconn.png' %}">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'styles/materialize.min.css' %}">
+</head>
+<header>
+    <nav style="height:300px;background:url('https://saiplatform.org/wp-content/uploads/2020/05/background-c19.jpg')">
+    <div style="text-align: right;">
+      <div style="text-align: right;">
+      
+      <a class="btn" href="{% url 'logout' %}" type="submit" style="background-color: #dc143c;box-sizing:content-box;" >Logout</a>
+      
+      </div>
+      <a class="brand-logo center"
+      href="/"
+      style="font-size:40px;font-weight: 950;">COVID Prediction   based on Symptoms</a>
+    </div>
+  </nav>
+</header>
+<style>
+  label{
+    font-size: 20px;
+  }
+</style>
+<body>
+
+  {% block content %}
+  
+  {% endblock %}
+  
+  <footer class="container">
+      <h6 class="justify-text" style="font-size: 14px;margin-top: 60px;text-align: center;">
+        This project estimates the presence of COVID based on the input data, it is important to note that it is not a medically obtained result.
+        <br>
+        This project is done by Ritika(1932039) and Mahashruthi(1932022)
+      </h6>
+  </footer>
+</body>
+</html>

@@ -1,0 +1,151 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+   <div class="container" style="padding:40px 15px 0px 15px">
+      
+      <div>
+        <form class="row" method="POST" action="{% url 'index' %}">
+          {% csrf_token %}
+          <div class="col  s12 ">
+            {% if request.user.is_authenticated %}
+              <h3 style="font-size: 25px;text-align: left;font-family: 'Trebuchet MS'">Welcome {{request.user}},</h3>
+              <br>
+            {% endif %}
+            <h5 style="font-size: 18px;text-align: left;font-family: 'Trebuchet MS'; font-weight: bold;">Patient Details</h5>
+            <div >
+              <label for="full_name" style="font-family: 'Trebuchet MS';font-style: italic;font-size: medium;">Patient Name<a class="form-control" name="full_name" data-position="right"></a>
+                </label>
+              <input
+                type="text"
+                id="full_name"
+                name="full_name"
+                required
+              />
+            </div>
+            <div>
+              <label for="age" style="font-family: 'Trebuchet MS';font-style: italic;font-size: medium;">Patient Age</label>
+              <input
+                type="number"
+                step="1"
+                class="form-control"
+                id="age"
+                min=1 max=120
+                name="age" required
+              />
+            </div>  
+            <div class="form-control">
+              <label for="gender" style="font-family: 'Trebuchet MS';font-style: italic;font-size: medium;">Patient Gender</label>
+              <select name="gender" class="browser-default" required>
+                <option value="" disabled selected>Choose option</option>
+                <option value="0">Female</option>
+                <option value="1">Male</option>
+              </select>
+            </div><br>
+            <div class="col m6 s12 l8">
+              <h5 style="font-size: 18px;text-align: left;font-family: 'Trebuchet MS'; font-weight: bold;">Major SYMPTOMS of the Patient</h5>
+              <br>
+              <label for="cough" style="font-family: 'Trebuchet MS';font-style: italic;font-size: medium;">If patient is living in COVID affected area?</label>
+              <select name="lives_in_affected_area" required class="browser-default">
+                <option value="" disabled selected>Choose option</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+              </select>
+            </div><br>
+            <div class="col m6 s12 l8">
+              <label for="fever" style="font-family: 'Trebuchet MS';font-style: italic;font-size: medium;">If patient is suffering from Fever?</label>
+              <select name="fever" required class="browser-default">
+                <option value="" disabled selected>Choose option</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+              </select>
+            </div><br>
+            <div class="col m6 s12 l8">
+              <label for="cough" style="font-family: 'Trebuchet MS';font-style: italic;font-size: medium;">If patient is suffering from Dry Cough?</label>
+              <select name="cough" required class="browser-default">
+                <option value="" disabled selected>Choose option</option>
+                <option value="1">Yes</option>
+                <option value="0">No</option>
+              </select>
+            </div>
+          </div>
+          <br></br>
+          <div class="col m8 s12 l6" >
+            <br></br>
+            <h5 style="font-size: 18px;text-align: left;font-family: 'Trebuchet MS'; font-weight: bold;">Other Minor Symptoms that may also cause COVID</h5>
+            <div>
+              <label style="font-family: 'Trebuchet MS';font-style:normal;font-size:large;">
+                <input id="indeterminate-checkbox fatigue" name="fatigue"  type="checkbox" style="text-align: justify;"/>
+                <span>Fatigue</span>
+              </label>
+            </div>
+             <br>
+            <div>
+              <label style="font-family: 'Trebuchet MS';font-style:normal;font-size:large;">
+                <input id="indeterminate-checkbox pains" name="pains"  type="checkbox" />
+                <span>Body Pain</span>
+              </label>
+            </div> <br>
+            <div>
+              <label style="font-family: 'Trebuchet MS';font-style:normal;font-size:large;">
+                <input id="indeterminate-checkbox nasal_congestion" name="nasal_congestion"  type="checkbox" />
+                <span>Nasal Congestion</span>
+              </label>
+            </div> <br>
+            <div>
+              <label style="font-family: 'Trebuchet MS';font-style:normal;font-size:large;">
+                <input id="indeterminate-checkbox shortness_of_breath" name="shortness_of_breath"  type="checkbox" />
+                <span>Breathing problems</span>
+              </label>
+            </div> <br>
+            <div>
+              <label style="font-family: 'Trebuchet MS';font-style:normal;font-size:large;">
+                <input id="indeterminate-checkbox runny_nose" name="runny_nose"  type="checkbox" />
+                <span>Running Nose</span>
+              </label>
+            </div> <br>
+            <div>
+              <label style="font-family: 'Trebuchet MS';font-style:normal;font-size:large;">
+                <input id="indeterminate-checkbox sore_throat" name="sore_throat"  type="checkbox" />
+                <span>Sore Throat</span>
+              </label>
+            </div> <br>
+            <div>
+              <label style="font-family: 'Trebuchet MS';font-style:normal;font-size:large;">
+                <input id="indeterminate-checkbox diarrhea" name="diarrhea"  type="checkbox" />
+                <span>Diarrhea</span>
+              </label>
+            </div> <br>
+            <div>
+              <label style="font-family: 'Trebuchet MS';font-style:normal;font-size:large;">
+                <input id="indeterminate-checkbox chills" name="chills"  type="checkbox" />
+                <span>Chills</span>
+              </label>
+            </div> <br>
+            <div>
+              <label style="font-family: 'Trebuchet MS';font-style:normal;font-size:large;">
+                <input id="indeterminate-checkbox headache" name="headache"  type="checkbox" />
+                <span>Headache</span>
+              </label>
+            </div> <br>
+            <div>
+              <label style="font-family: 'Trebuchet MS';font-style:normal;font-size:large;">
+                <input id="indeterminate-checkbox vomiting" name="vomiting"  type="checkbox" />
+                <span>Vomitting</span>
+              </label>
+            </div><br>
+                  <br>
+                  <br>
+            <div>
+              <button type="submit" class="btn" style="background-color: #dc143c;">
+               Predict<i class="material-icons right">send</i>
+              </button>
+            </div>
+          </div>
+          
+          
+        </form>
+      </div>
+    </div>
+    
+{% endblock %}
